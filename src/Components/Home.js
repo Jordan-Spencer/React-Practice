@@ -4,7 +4,7 @@ import './Default.styles.css';
 
 const Home = (props) => {
 
-    const [taskList, setTaskList] = useState(props.location.state.taskList);
+    const [taskList, setTaskList] = useState([]);
     const [newTask, setNewTask] = useState('');
     const [taskId, setTaskId] = useState(taskList.length);
   
@@ -13,37 +13,44 @@ const Home = (props) => {
       setNewTask(e.target.value);
     }
 
+    const taskListInit = () => {
+      if (props.location.state.taskList) {
+          return (setTaskList([...props.location.state.taskList])
+          );
+      }
+    }
+
     const displayList = (taskList) => {
         if (taskList) {
-            return (
+          return (
             <div className="TaskList">
                 <h1>Tasks</h1>
                 <table>
                     <thead>
-                        <tr className='header'>
+                        <tr className='header' key='header'>
                             <th>TASK</th>
                             <th>STATUS</th>
                         </tr>
                     </thead>
                     <tbody>
-                    {taskList.map(({ id, taskText, status}) => 
-                    <tr className='task-entry' key={id}>
+                      {taskList.map(({ id, taskText, status}) => 
+                      <tr className='task-entry' key={id}>
+                        <td>
+                          <Link to={{
+                              pathname: `/details/${id}`,
+                              state: {taskList: taskList}
+                            }}>
+                            {taskText}
+                          </Link>
+                        </td>
                       <td>
-                        <Link to={{
-                            pathname: `/details/${id}`,
-                            state: {taskList: taskList}
-                          }}>
-                          {taskText}
-                        </Link>
+                        {status}
                       </td>
-                    <td>
-                      {status}
-                    </td>
                   </tr>
                 )}
                 </tbody>
-                </table>
-            </div>
+            </table>
+          </div>
         );
     }
 
@@ -81,6 +88,7 @@ const Home = (props) => {
 
     return (
         <div>
+        {taskListInit}
         {displayList(taskList)}
             <form onSubmit={createTask}>
                 <input id='task-input' type='text' className='task' value={newTask} onChange={handleChange} />

@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import './Default.styles.css';
 
 const TaskDetails = (props) => {
-
   
   const taskList = [...props.location.state.taskList];
-  const currentTaskIndex = parseInt(props.match.params.id);
-  const currentTask = taskList[currentTaskIndex];
+  const newTaskList = [...taskList];
+  const currentTaskId = parseInt(props.match.params.id);
+  const filteredTaskList = taskList.filter(task => task.id === currentTaskId);
+  const currentTask = filteredTaskList[0];
   const [currentTaskStatus, setCurrentTaskStatus] = useState(currentTask.status);
 
   const handleChange = (e) => {
@@ -15,38 +16,29 @@ const TaskDetails = (props) => {
   }
 
   const updateTask = () => {
-    taskList.splice(currentTaskIndex, 1);
-    taskList.push({
-          id: currentTaskIndex,
-          taskText: `${currentTask.taskText}`,
-          status: `${currentTaskStatus}`
-    });
+    const index = newTaskList.findIndex(task => currentTaskId === task.id)
+    newTaskList[index].status = `${currentTaskStatus}`;
   }
 
   return (
     <div className="EditTask">
-
         <h1>Edit Task
-        <button>
-          <Link id='save' onClick={updateTask} to={{
-            pathname: `/`,
-            state: {taskList: taskList}
-              }}>
-              Save
-          </Link>
-        </button>
+          <button>
+            <Link id='save' onClick={updateTask} to={{
+                  pathname: `/`,
+                  state: {taskList: newTaskList}
+                  }}>
+                Save
+            </Link>
+          </button>
         </h1>
-      
       <hr />
-
       <div className='v1'></div>
-      
       <div id='task-box'>
         Task Text
         <p id='task-field'>{currentTask.taskText}</p>
       </div>
-      
-        <form className='radio-buttons'>
+      <form className='radio-buttons'>
         Status <br />
           <label>
               <input type='radio' name='status' value='Completed' 
@@ -69,8 +61,7 @@ const TaskDetails = (props) => {
                         />
               Not Started
           </label>
-        </form>
-
+      </form>
     </div>      
   );
 }
