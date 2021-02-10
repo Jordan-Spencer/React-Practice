@@ -13,11 +13,6 @@ const Home = (props) => {
       setNewTask(e.target.value);
     }
 
-    const clear = () => {
-      setTaskList([]);
-      setTaskId(0);
-    }
-
     const displayList = (taskList) => {
         if (taskList) {
             return (
@@ -88,14 +83,20 @@ const Home = (props) => {
         <div>
         {displayList(taskList)}
             <form onSubmit={createTask}>
-                <input type='text' className='task' value={newTask} onChange={handleChange} />
-                <button id='add-button' className='disabled' type='submit'>Add</button>
+                <input id='task-input' type='text' className='task' value={newTask} onChange={handleChange} />
+                <button id='add-button' type='submit'>Add</button>
             </form>
-
-            <hr/>
-            <button id='clear-button' className='disabled' onClick={clear}>Clear</button>
         </div>
     );
 }
 
 export default Home;
+
+
+
+    // const clear = () => {
+    //   setTaskList([]);
+    //   setTaskId(0);
+    // }
+    //            <hr/>
+    // <button id='clear-button' onClick={clear}>Clear</button>

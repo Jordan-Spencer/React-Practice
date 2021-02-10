@@ -24,7 +24,7 @@ const TaskDetails = (props) => {
   }
 
   return (
-    <div>
+    <div className="EditTask">
 
         <h1>Edit Task
         <button>
@@ -39,26 +39,29 @@ const TaskDetails = (props) => {
       
       <hr />
 
-      <div>
-          {taskList[currentTaskIndex].taskText}
+      <div className='v1'></div>
+      
+      <div id='task-box'>
+        Task Text
+        <p id='task-field'>{currentTask.taskText}</p>
       </div>
       
-      <div>
         <form className='radio-buttons'>
+        Status <br />
           <label>
               <input type='radio' name='status' value='Completed' 
                       checked={currentTaskStatus === 'Completed'}
                       onChange={handleChange}
                         />
               Completed
-          </label>
+          </label><br />
           <label>
               <input type='radio' name='status' value='In Progress' 
                       checked={currentTaskStatus === 'In Progress'}
                       onChange={handleChange}
                         />
               In Progress
-          </label>
+          </label><br />
               <label>
               <input type='radio' name='status' value='Not Started' 
                       checked={currentTaskStatus === 'Not Started'}
@@ -67,7 +70,7 @@ const TaskDetails = (props) => {
               Not Started
           </label>
         </form>
-      </div>
+
     </div>      
   );
 }

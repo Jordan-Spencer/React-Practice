@@ -3,11 +3,6 @@
     text-align: left;
 }
 
-div {
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
 form {
     padding-left: 10px;
     padding-top: 10px;
@@ -21,6 +16,7 @@ table {
 th {
     font-size: 12px;
     opacity: 0.6;
+    padding: 10px;
 }
 
 tr { 
@@ -29,12 +25,12 @@ tr {
     border-color: rgba(0,0,0,0.25);
 }
 
-tbody > tr:hover {
-    background-color: lightgrey;
+td {
+    padding: 10px;
 }
 
-input {
-    width: 80%;
+tbody > tr:hover {
+    background-color: lightgrey;
 }
 
 a:link, a:visited {
@@ -48,14 +44,52 @@ button {
     border-radius: 4px;
     text-align: center;
     background-color: rgb(32, 122, 207);
+    padding: 5px;
 }
 
-/* .disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-} */
+.TaskList, .EditTask {
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
 .radio-buttons {
-    margin-right: 0px;
-    margin-left: -3px;
+    float: right;
+    padding-right: 30%;
+    margin-top: -75px;
 }
+
+#task-input {
+    width: 80%;
+    padding: 5px;
+    margin-top: 25px;
+}
+
+#task-input:focus {
+    outline: 4px solid rgb(32, 122, 207, 0.5);
+}
+
+#task-box {
+    margin-top: 30px;
+    margin-left: 10%;
+    width: 25%;
+    text-align: left;
+}
+
+#task-field {
+    border: 1px solid black;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+#task-field:hover {
+    outline: 4px solid rgb(32, 122, 207, 0.5);
+}
+
+.v1 {
+    border-left: 2px solid lightgrey;
+    height: 400px;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    top: 100;
+  }

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Home, {taskList} from './Components/Home';
+import Home from './Components/Home';
 import TaskDetails from './Components/TaskDetails';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
