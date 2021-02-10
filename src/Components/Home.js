@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Default.styles.css';
 
@@ -6,19 +6,17 @@ const Home = (props) => {
 
     const [taskList, setTaskList] = useState([]);
     const [newTask, setNewTask] = useState('');
-    const [taskId, setTaskId] = useState(taskList.length);
+    const [taskId, setTaskId] = useState(parseInt(taskList.length));
   
     const handleChange = (e) => {
       e.preventDefault();
       setNewTask(e.target.value);
     }
 
-    const taskListInit = () => {
-      if (props.location.state.taskList) {
-          return (setTaskList([...props.location.state.taskList])
-          );
-      }
-    }
+    // useEffect(() => {
+    //    if (props.location.state.taskList) {setTaskList([...props.location.state.taskList])};
+    //   }, [props.location.state.taskList]);
+
 
     const displayList = (taskList) => {
         if (taskList) {
@@ -52,21 +50,7 @@ const Home = (props) => {
             </table>
           </div>
         );
-    }
-
-        return (
-            <div className="TaskList">
-                <h1>Tasks</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>TASK</th>
-                            <th>STATUS</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-            );
+      }
     }
 
     const createTask = (e) => {
@@ -74,12 +58,12 @@ const Home = (props) => {
         if (newTask === '') {
           return null;
         }
-        setTaskId(taskId + parseInt(1));
         const task = {
           id: parseInt(`${taskId}`),
           taskText: `${newTask}`,
           status: 'Not Started'
         };
+        setTaskId(taskId + parseInt(1));
         console.log(task);
         setNewTask('');
         setTaskList([...taskList, task]);
@@ -88,7 +72,6 @@ const Home = (props) => {
 
     return (
         <div>
-        {taskListInit}
         {displayList(taskList)}
             <form onSubmit={createTask}>
                 <input id='task-input' type='text' className='task' value={newTask} onChange={handleChange} />
