@@ -1,95 +1,98 @@
 * {
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-    text-align: left;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  text-align: left;
 }
 
 form {
-    padding-left: 10px;
-    padding-top: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
 }
 
 table {
-    border-collapse: collapse;
-    width: 100%
+  border-collapse: collapse;
+  width: 100%;
 }
 
 th {
-    font-size: 12px;
-    opacity: 0.6;
-    padding: 10px;
+  font-size: 12px;
+  opacity: 0.6;
+  padding: 10px;
 }
 
-tr { 
-    border: solid;
-    border-width: 1px 0;
-    border-color: rgba(0,0,0,0.25);
+tr {
+  border: solid;
+  border-width: 1px 0;
+  border-color: rgba(0, 0, 0, 0.25);
 }
 
 td {
-    padding: 10px;
+  padding: 10px;
 }
 
 tbody > tr:hover {
-    background-color: lightgrey;
+  background-color: lightgrey;
 }
 
-a:link, a:visited {
-    text-decoration: none;
-    color: #000;
+a:link,
+a:visited {
+  text-decoration: none;
+  color: #000;
 }
 
 button {
-    width: 50px;
-    margin-left: 20px;
-    border-radius: 4px;
-    text-align: center;
-    background-color: rgb(32, 122, 207);
-    padding: 5px;
+  width: 50px;
+  margin-left: 20px;
+  border-radius: 4px;
+  text-align: center;
+  background-color: rgb(32, 122, 207);
+  padding: 5px;
 }
 
-.TaskList, .EditTask {
-    padding-left: 10px;
-    padding-right: 10px;
+.TaskList,
+.EditTask {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .radio-buttons {
-    float: right;
-    padding-right: 30%;
-    margin-top: -75px;
+  float: right;
+  padding-right: 30%;
+  margin-top: -75px;
 }
 
 #task-input {
-    width: 80%;
-    padding: 5px;
-    margin-top: 25px;
+  width: 80%;
+  padding: 5px;
+  margin-top: 25px;
 }
 
 #task-input:focus {
-    outline: 4px solid rgb(32, 122, 207, 0.5);
+  outline: 4px solid rgb(32, 122, 207, 0.5);
 }
 
 #task-box {
-    margin-top: 30px;
-    margin-left: 10%;
-    width: 25%;
-    text-align: left;
+  margin-top: 30px;
+  margin-left: 10%;
+  width: 25%;
+  text-align: left;
 }
 
 #task-field {
-    border: 1px solid black;
-    margin-top: 5px;
-    padding: 5px;
+  border: 1px solid black;
+  margin-top: 5px;
+  padding: 5px;
 }
 
 #task-field:hover {
-    outline: 4px solid rgb(32, 122, 207, 0.5);
+  outline: 4px solid rgb(32, 122, 207, 0.5);
 }
 
 .v1 {
-    border-left: 2px solid lightgrey;
-    height: 400px;
-    position: absolute;
-    left: 50%;
-    margin-left: -3px;
-    top: 100;
-  }
+  border-left: 2px solid lightgrey;
+  height: 400px;
+  position: absolute;
+  left: 50%;
+  margin-left: -3px;
+  top: 100;
+}
