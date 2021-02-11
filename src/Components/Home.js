@@ -13,9 +13,9 @@ const Home = (props) => {
       setNewTask(e.target.value);
     }
 
-    // useEffect(() => {
-    //    if (props.location.state.taskList) {setTaskList([...props.location.state.taskList])};
-    //   }, [props.location.state.taskList]);
+    useEffect(() => {
+       if (props.location.state?.taskList) {setTaskList([...props.location.state.taskList])};
+      }, [props.location.state.taskList]);
 
 
     const displayList = (taskList) => {
